@@ -7,14 +7,15 @@ package filemodify;
 
 import com.sun.media.jfxmedia.logging.Logger;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.EOFException;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -32,11 +33,12 @@ public class FileModify {
         
         ArrayList Mylist = new ArrayList();
         
-        try(BufferedReader myReader = new BufferedReader(new FileReader(new File("BoyNames.txt"))))
+        try(BufferedReader myReader = new BufferedReader(new FileReader(new File("/Users/ivasquez/NetBeansProjects/Filereader/FileModify/src/filemodify/BoyNames.txt"))))
         {
-            BufferedWriter myWriter = Files.newBufferedWriter(path, StandardOpenOption.CREATE_NEW, StandardOpenOption.APPEND);
+            BufferedWriter myWriter = new BufferedWriter(new FileWriter(new File("/Users/ivasquez/NetBeansProjects/Filereader/FileModify/src/filemodify/BoyNames.txt")));
             StringBuilder fileContent = new StringBuilder();
             String line = myReader.readLine();
+            
             
             while(line != null) 
             {
@@ -44,6 +46,7 @@ public class FileModify {
                 fileContent.append(line);
                 fileContent.append(System.lineSeparator());
                 line = myReader.readLine();
+                
                 
             }
            Collections.sort(Mylist);
