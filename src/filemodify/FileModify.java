@@ -5,17 +5,13 @@
  */
 package filemodify;
 
-import com.sun.media.jfxmedia.logging.Logger;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.EOFException;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -35,7 +31,7 @@ public class FileModify {
         
         try(BufferedReader myReader = new BufferedReader(new FileReader(new File("/Users/ivasquez/NetBeansProjects/Filereader/FileModify/src/filemodify/BoyNames.txt"))))
         {
-            BufferedWriter myWriter = new BufferedWriter(new FileWriter(new File("/Users/ivasquez/NetBeansProjects/Filereader/FileModify/src/filemodify/BoyNames.txt")));
+            BufferedWriter myWriter = new BufferedWriter(new FileWriter(new File("/Users/ivasquez/NetBeansProjects/Filereader/FileModify/src/filemodify/BoyList.txt")));
             StringBuilder fileContent = new StringBuilder();
             String line = myReader.readLine();
             
@@ -51,6 +47,8 @@ public class FileModify {
             }
            Collections.sort(Mylist);
            System.out.println(Mylist);
+           myWriter.write(Mylist.toString());
+           myWriter.close();
         }
         catch(IOException ioe)
         {
