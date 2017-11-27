@@ -45,15 +45,19 @@ public class FileModify {
                 
                 
             }
-           Collections.sort(Mylist);
-           System.out.println(Mylist);
-           myWriter.write(Mylist.toString());
-           myWriter.close();
+            Collections.sort(Mylist);
+            
+            for (Object element : Mylist){
+                System.out.println(element);
+            }
+            myWriter.write(Mylist.toString());
+                myWriter.close();
         }
         catch(IOException ioe)
         {
             
             System.out.println("not readable");
+            System.out.println(ioe.toString());
             System.exit(0);
         }
         
