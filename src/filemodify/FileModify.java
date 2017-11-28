@@ -49,8 +49,10 @@ public class FileModify {
             
             for (Object element : Mylist){
                 System.out.println(element);
+                myWriter.write(element.toString());
+                myWriter.newLine();
             }
-            myWriter.write(Mylist.toString());
+            
                 myWriter.close();
         }
         catch(IOException ioe)
